@@ -37,7 +37,7 @@
   height: 500px;
   margin-left: 200px;
   position: relative;
-  display: none;
+  display: flex;
 }
 /* 3-card variant — taller but capped to fit within 100vh */
 .what-box-in--three {
