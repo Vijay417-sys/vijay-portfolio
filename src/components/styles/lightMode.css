@@ -1,0 +1,294 @@
+/* ============================================================
+   LIGHT MODE (Sky Blue Day Theme) — Global Overrides
+   Applied when body[data-theme="light"]
+   ============================================================ */
+
+/* ── Base / Global ── */
+body[data-theme="light"] {
+  --accentColor: #0369a1;
+  --backgroundColor: #F3F7FB;
+  --textColor: #0c1a2e;
+  --navbarConnectColor: #0c4a6e;
+  color-scheme: light;
+  background-color: #F3F7FB !important;
+}
+
+/* Ensure the scroll wrapper also turns sky blue */
+body[data-theme="light"] #smooth-wrapper,
+body[data-theme="light"] #smooth-content,
+body[data-theme="light"] .container-main,
+body[data-theme="light"] .main-body {
+  background-color: #F3F7FB;
+}
+
+body[data-theme="light"] a:hover {
+  color: var(--accentColor);
+}
+
+/* ── Navbar ── */
+body[data-theme="light"] .header ul li {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .navbar-title {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .theme-toggle-btn {
+  color: #0c1a2e;
+  border-color: #0c1a2e;
+}
+
+body[data-theme="light"] .nav-fade {
+  background-image: linear-gradient(0deg, transparent, var(--backgroundColor) 70%);
+}
+
+/* ── Landing Circles ── */
+body[data-theme="light"] .landing-circle1,
+body[data-theme="light"] .landing-circle2 {
+  background-color: #7dd3fc;
+  box-shadow: inset -50px 40px 50px rgba(14, 165, 233, 0.5);
+}
+
+body[data-theme="light"] .character-rim {
+  background-color: #38bdf8;
+  box-shadow: inset 66px 35px 85px 0px rgba(14, 165, 233, 0.5);
+}
+
+body[data-theme="light"] .landing-info-h2::after {
+  background-image: linear-gradient(0deg, var(--backgroundColor) 40%, rgba(243, 247, 251, 0) 110%);
+}
+
+body[data-theme="light"] .character-model::after {
+  background-image: linear-gradient(to bottom, transparent, var(--backgroundColor) 70%);
+}
+
+body[data-theme="light"] .character-model::before {
+  background-color: var(--backgroundColor);
+}
+
+
+/* Landing text colors */
+body[data-theme="light"] .landing-intro h1,
+body[data-theme="light"] .landing-intro h2 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .landing-info h2,
+body[data-theme="light"] .landing-info h3 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] h2.landing-info-h2 {
+  color: #0369a1;
+}
+
+/* ── About Section ── */
+body[data-theme="light"] .about-me p {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .about-me h3 {
+  color: var(--accentColor);
+}
+
+/* ── What I Do Section ── */
+body[data-theme="light"] .what-box h2 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .do-h2 {
+  color: var(--accentColor);
+}
+
+body[data-theme="light"] .what-content {
+  background-color: rgba(14, 165, 233, 0.06);
+}
+
+body[data-theme="light"] .what-content h3 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .what-content p {
+  color: #1e3a5f;
+}
+
+body[data-theme="light"] .what-content h4 {
+  color: #0c1a2e;
+  opacity: 0.5;
+}
+
+body[data-theme="light"] .what-content h5 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .what-content::before,
+body[data-theme="light"] .what-corner::before,
+body[data-theme="light"] .what-content::after,
+body[data-theme="light"] .what-corner::after {
+  border-color: #0369a1;
+}
+
+body[data-theme="light"] .what-arrow {
+  border-color: #0369a1;
+}
+
+body[data-theme="light"] .what-arrow::before {
+  border-color: #0369a1;
+}
+
+body[data-theme="light"] .what-tags {
+  background-color: rgba(14, 165, 233, 0.15);
+  border-color: rgba(14, 165, 233, 0.4);
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .what-border1 svg path,
+body[data-theme="light"] .what-border2 svg path,
+body[data-theme="light"] .what-border1 svg rect,
+body[data-theme="light"] .what-border2 svg rect {
+  stroke: #0369a1;
+}
+
+/* ── Career / Timeline Section ── */
+body[data-theme="light"] .career-section h2 {
+  background: linear-gradient(0deg, #0369a1, #0c1a2e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body[data-theme="light"] .career-info h3,
+body[data-theme="light"] .career-info h4 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .career-info h5 {
+  color: var(--accentColor);
+}
+
+body[data-theme="light"] .career-info-box p {
+  color: #1e3a5f;
+}
+
+body[data-theme="light"] .career-timeline {
+  background-image: linear-gradient(to top, #0369a1 20%, #38bdf8 50%, transparent 95%);
+}
+
+body[data-theme="light"] .career-dot {
+  background-color: #0369a1;
+  box-shadow: 0px 0px 5px 2px #7dd3fc, 0px 0px 15px 8px #bae6fd, 0px 0px 110px 20px #F3F7FB;
+}
+
+/* ── Work Section ── */
+body[data-theme="light"] .work-section {
+  background: var(--backgroundColor);
+}
+
+body[data-theme="light"] .work-section h2 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .work-section h2 > span {
+  color: var(--accentColor);
+}
+
+body[data-theme="light"] .work-box {
+  border-right-color: #bae6fd;
+}
+
+body[data-theme="light"] .work-flex::before,
+body[data-theme="light"] .work-flex::after {
+  background-color: #bae6fd;
+}
+
+body[data-theme="light"] .work-title h3 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .work-info h4 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .work-info p {
+  color: #1e3a5f;
+}
+
+body[data-theme="light"] .work-link {
+  background-color: var(--backgroundColor);
+  box-shadow: 0px 0px 10px 0px rgba(14, 165, 233, 0.3), inset 0px 0px 10px 0px #bae6fd;
+  color: #0c1a2e;
+}
+
+/* ── Contact Section ── */
+body[data-theme="light"] .contact-section {
+  background: var(--backgroundColor);
+}
+
+body[data-theme="light"] .contact-section h3 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .contact-flex h4 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .contact-flex p {
+  color: #1e3a5f;
+}
+
+body[data-theme="light"] a.contact-social {
+  border-bottom-color: #0369a1;
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .contact-box h2 {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .contact-box h2 > span {
+  color: var(--accentColor);
+}
+
+body[data-theme="light"] .contact-box h5 {
+  color: #0c1a2e;
+}
+
+/* ── Social Icons ── */
+body[data-theme="light"] .social-icons a {
+  color: #0c1a2e;
+}
+
+body[data-theme="light"] .social-icons:hover,
+body[data-theme="light"] .social-icons a:hover {
+  color: var(--accentColor);
+}
+
+body[data-theme="light"] .resume-button {
+  color: #5b8db8;
+}
+
+body[data-theme="light"] .resume-button:hover {
+  color: #0369a1;
+}
+
+body[data-theme="light"] div.resume-button span {
+  color: #0369a1;
+}
+
+/* ── Cursor ── */
+body[data-theme="light"] .cursor-main {
+  background-color: #7dd3fc;
+  box-shadow: 0px 0px 30px 0px rgba(14, 165, 233, 0.6);
+  mix-blend-mode: multiply;
+}
+
+/* ── Tech Stack section ── */
+body[data-theme="light"] .techstack h2 {
+  color: #0c1a2e;
+}
+
+/* ── Nav fade gradient ── */
+body[data-theme="light"] .nav-fade {
+  background-image: linear-gradient(0deg, transparent, #F3F7FB 70%);
+}

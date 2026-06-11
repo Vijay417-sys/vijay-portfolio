@@ -39,6 +39,15 @@
   position: relative;
   display: none;
 }
+/* 3-card variant — taller but capped to fit within 100vh */
+.what-box-in--three {
+  height: min(750px, 75vh);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.what-box-in--three::-webkit-scrollbar {
+  display: none;
+}
 .what-content {
   width: 450px;
   height: 33%;
@@ -251,6 +260,9 @@
   .what-box-in {
     height: 400px;
   }
+  .what-box-in--three {
+    height: 600px;
+  }
   .what-content h3 {
     font-size: 28px;
   }
@@ -292,6 +304,9 @@
   .what-box-in {
     height: 500px;
     margin-left: -50px;
+  }
+  .what-box-in--three {
+    height: 750px;
   }
   .what-content {
     padding: 50px;
@@ -339,6 +354,9 @@
   .what-box-in {
     margin-left: 0px;
     height: 450px;
+  }
+  .what-box-in--three {
+    height: 680px;
   }
   .what-content h5,
   .what-content-flex {

@@ -3,6 +3,7 @@ import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
+import ErrorBoundary from "./ErrorBoundary";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
@@ -20,14 +21,17 @@ const MainContainer = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
+      setIsDesktopView((current) => {
+        const next = window.innerWidth > 1024;
+        return current === next ? current : next;
+      });
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
@@ -43,11 +47,11 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <WhatIDo />
             <Career />
             <Work />
-            {isDesktopView && (
+            <ErrorBoundary>
               <Suspense fallback={<div>Loading....</div>}>
                 <TechStack />
               </Suspense>
-            )}
+            </ErrorBoundary>
             <Contact />
           </div>
         </div>

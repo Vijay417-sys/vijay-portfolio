@@ -16,7 +16,10 @@ const WhatIDo = () => {
         }
       });
     }
+    // Refresh ScrollTrigger so the Work section pin calculates correctly
+    const timer = setTimeout(() => ScrollTrigger.refresh(), 300);
     return () => {
+      clearTimeout(timer);
       containerRef.current.forEach((container) => {
         if (container) {
           container.removeEventListener("click", () => handleClick(container));
@@ -35,7 +38,7 @@ const WhatIDo = () => {
         </h2>
       </div>
       <div className="what-box">
-        <div className="what-box-in">
+        <div className="what-box-in what-box-in--three">
           <div className="what-border2">
             <svg width="100%">
               <line
@@ -58,6 +61,7 @@ const WhatIDo = () => {
               />
             </svg>
           </div>
+          {/* --- BACKEND CARD --- */}
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 0)}
@@ -87,34 +91,38 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
-              <h4>Description</h4>
+              <h3>BACKEND</h3>
+              <h4>Java ,JDBC & J2EE Development</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+                Building scalable RESTful APIs and backend systems using Java ,JDBC,J2EE.
+                Experienced with authentication, database design, and microservices patterns.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">Java</div>
+                <div className="what-tags">REST API</div>
+                <div className="what-tags">JDBC</div>
+                <div className="what-tags">J2EE</div>
               </div>
               <div className="what-arrow"></div>
             </div>
           </div>
+          {/* --- FRONTEND CARD --- */}
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 1)}
           >
             <div className="what-border1">
               <svg height="100%">
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="100%"
+                  y2="0"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
                 <line
                   x1="0"
                   y1="100%"
@@ -128,22 +136,66 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>DESIGN</h3>
-              <h4>Description</h4>
+              <h3>FRONTEND</h3>
+              <h4>React &amp; UI Development</h4>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+                Crafting responsive, user-friendly interfaces using React.js and modern CSS.
+                Familiar with TypeScript and Angular for scalable frontend architectures.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5>Skillset &amp; tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">React.js</div>
+                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">HTML &amp; CSS</div>
+              </div>
+              <div className="what-arrow"></div>
+            </div>
+          </div>
+          {/* --- DEVOPS & CLOUD CARD --- */}
+          <div
+            className="what-content what-noTouch"
+            ref={(el) => setRef(el, 2)}
+          >
+            <div className="what-border1">
+              <svg height="100%">
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="100%"
+                  y2="0"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
+                <line
+                  x1="0"
+                  y1="100%"
+                  x2="100%"
+                  y2="100%"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeDasharray="6,6"
+                />
+              </svg>
+            </div>
+            <div className="what-corner"></div>
+            <div className="what-content-in">
+              <h3>DEVOPS</h3>
+              <h4>AWS, Cloud &amp; Databases</h4>
+              <p>
+                Managing cloud infrastructure on AWS (EC2, S3, RDS) and automating
+                CI/CD pipelines with Docker and Jenkins. Proficient in MySQL for
+                relational database design and management.
+              </p>
+              <h5>Skillset &amp; tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">AWS</div>
+                <div className="what-tags">EC2 &amp; S3</div>
+                <div className="what-tags">Docker</div>
+                <div className="what-tags">Jenkins</div>
+                <div className="what-tags">CI/CD</div>
+                <div className="what-tags">MySQL</div>
+                <div className="what-tags">Git &amp; GitHub</div>
               </div>
               <div className="what-arrow"></div>
             </div>

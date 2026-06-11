@@ -1,71 +1,363 @@
+/* ═══════════════════════════════════════════════════════════
+   About.css  —  Full structure with comments for easy editing
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 1. SECTION WRAPPER ──────────────────────────────────────
+   Full-viewport section. Uses flex to split into left + right.
+   id="about" is the navigation anchor.
+   ─────────────────────────────────────────────────────────── */
 .about-section {
   display: flex;
+  flex-direction: row;          /* side-by-side layout         */
   align-items: center;
-  justify-content: left;
-  place-items: center;
+  width: 100%;
+  min-height: 100vh;            /* full screen height          */
   position: relative;
-  opacity: 1;
-  height: auto;
-  width: var(--cWidth);
-  margin: auto;
+  overflow: hidden;
+  box-sizing: border-box;
 }
-.about-me {
-  padding: 50px 0px;
-  padding-bottom: 0;
-  width: 500px;
-  max-width: calc(100% - 15px);
+
+/* ── 2. LEFT HALF — Decorative empty side ───────────────────
+   Exactly 50% width. Put art, image, or leave empty.
+   ─────────────────────────────────────────────────────────── */
+.about-left {
+  flex: 0 0 50%;                /* exactly 50% width           */
+  width: 50%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.about-me h3 {
-  font-size: 25px;
+
+/* Subtle background glow on left side */
+.about-left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 60% 50%,
+    rgba(194, 164, 255, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+body[data-theme="light"] .about-left::after {
+  background: radial-gradient(
+    ellipse 70% 60% at 60% 50%,
+    rgba(14, 165, 233, 0.07) 0%,
+    transparent 70%
+  );
+}
+
+/* ── 2a. DECORATIVE RINGS ────────────────────────────────────
+   Three concentric glowing circles on the left half.
+   Change border-color / width / height to restyle.
+   ─────────────────────────────────────────────────────────── */
+.about-left-deco {
+  position: relative;
+  width: 260px;                 /* ← ring cluster size         */
+  height: 260px;
+}
+
+.deco-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--accentColor);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.15;
+  animation: ring-pulse 4s ease-in-out infinite;
+}
+.deco-ring-1 {
+  width: 120px;
+  height: 120px;
+  opacity: 0.3;
+  animation-delay: 0s;
+}
+.deco-ring-2 {
+  width: 200px;
+  height: 200px;
+  opacity: 0.18;
+  animation-delay: 0.8s;
+}
+.deco-ring-3 {
+  width: 280px;
+  height: 280px;
+  opacity: 0.10;
+  animation-delay: 1.6s;
+}
+@keyframes ring-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: inherit; }
+  50%       { transform: translate(-50%, -50%) scale(1.06); }
+}
+
+/* ── 3. RIGHT HALF — Content ─────────────────────────────────
+   Exactly 50% width. All text lives here.
+   ─────────────────────────────────────────────────────────── */
+.about-right {
+  flex: 0 0 50%;                /* exactly 50% width           */
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;          /* center all children         */
+  justify-content: center;
+  text-align: center;           /* center text inside children */
+  padding: 80px 50px;           /* equal padding left & right  */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Vertical accent line on the left edge of the right panel */
+.about-right::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--accentColor) 40%,
+    transparent
+  );
+  border-radius: 2px;
+  opacity: 0.4;
+}
+
+/* ── 4. SMALL LABEL ──────────────────────────────────────────
+   The tiny "Who I Am" badge above the title.
+   Edit font-size / letter-spacing here.
+   ─────────────────────────────────────────────────────────── */
+.about-label {
+  display: inline-block;
+  font-size: 20px;              /* ← label font size           */
+  font-weight: 500;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  letter-spacing: 7px;
-  font-weight: 400;
   color: var(--accentColor);
+  margin-bottom: 14px;
+  opacity: 0.85;
+  text-align: center;
 }
 
-.about-me p {
-  font-size: 33px;
+/* ── 5. BIG TITLE ────────────────────────────────────────────
+   "About Me" — make it large and impactful.
+   Edit font-size to adjust size.
+   ─────────────────────────────────────────────────────────── */
+.about-title {
+  font-size: 52px;              /* ← TITLE SIZE — edit freely  */
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 22px 0;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--textColor) 20%,
+    var(--accentColor) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── 6. DIVIDER ──────────────────────────────────────────────
+   The  ── ● ──  separator below the title.
+   ─────────────────────────────────────────────────────────── */
+.about-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;      /* center the divider          */
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.divider-line {
+  display: block;
+  width: 50px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--accentColor), transparent);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+.divider-dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  box-shadow: 0 0 8px var(--accentColor);
+  animation: glow-dot 2s ease-in-out infinite;
+}
+@keyframes glow-dot {
+  0%, 100% { box-shadow: 0 0 6px var(--accentColor); }
+  50%       { box-shadow: 0 0 18px var(--accentColor); }
+}
+
+/* ── 7. PARAGRAPH ────────────────────────────────────────────
+   Main body text. Edit font-size here.
+   ─────────────────────────────────────────────────────────── */
+.about-para {
+  font-size: 18px;              /* ← PARAGRAPH SIZE — edit freely */
+  font-weight: 400;
+  line-height: 1.9;
+  text-align: center;           /* centered like the title     */
+  letter-spacing: 0.15px;
+  color: var(--textColor);
+  opacity: 0.82;
+  margin: 0 0 28px 0;
+  max-width: 500px;
+}
+
+/* ── 8. HIGHLIGHT SPANS ──────────────────────────────────────
+   Words wrapped in <span className="hl"> inside the paragraph.
+   ─────────────────────────────────────────────────────────── */
+.hl {
+  color: var(--accentColor);
   font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  opacity: 1;
 }
 
-@media only screen and (min-width: 600px) {
+/* ── 9. SKILL CHIPS ──────────────────────────────────────────
+   Pill badges. Edit gap / padding / font-size to respace.
+   ─────────────────────────────────────────────────────────── */
+.about-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;      /* center the chips row        */
+  gap: 9px;
+  margin-bottom: 34px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  font-size: 12px;              /* ← chip text size            */
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  border: 1px solid rgba(194, 164, 255, 0.28);
+  background: rgba(194, 164, 255, 0.07);
+  color: var(--accentColor);
+  transition: background 0.25s ease, transform 0.2s ease;
+  cursor: default;
+  user-select: none;
+}
+body[data-theme="light"] .chip {
+  border-color: rgba(14, 165, 233, 0.25);
+  background: rgba(14, 165, 233, 0.07);
+}
+.chip:hover {
+  background: rgba(194, 164, 255, 0.18);
+  transform: translateY(-3px);
+}
+body[data-theme="light"] .chip:hover {
+  background: rgba(14, 165, 233, 0.15);
+}
+
+/* Pulsing dot inside each chip */
+.chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.35); }
+}
+
+/* ── 10. EXPLORE MORE BUTTON ─────────────────────────────────
+   Clicking this scrolls smoothly to the WhatIDo section.
+   To change destination: edit scrollToNext() in About.tsx.
+   ─────────────────────────────────────────────────────────── */
+.about-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: center;           /* centered under the paragraph */
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--backgroundColor);
+  background: var(--accentColor);
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(194, 164, 255, 0.35);
+}
+.about-nav-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(194, 164, 255, 0.55);
+  color: var(--backgroundColor);
+}
+body[data-theme="light"] .about-nav-btn {
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+}
+body[data-theme="light"] .about-nav-btn:hover {
+  box-shadow: 0 8px 28px rgba(14, 165, 233, 0.5);
+}
+
+/* ── 11. RESPONSIVE BREAKPOINTS ──────────────────────────────
+   On mobile: stack vertically, left half becomes top strip.
+   ─────────────────────────────────────────────────────────── */
+@media only screen and (max-width: 1024px) {
   .about-section {
-    justify-content: center;
+    flex-direction: column;     /* stack on tablet/mobile      */
+    min-height: auto;
+  }
+  .about-left {
+    flex: none;
+    width: 100%;
+    min-height: 140px;          /* slim decorative strip       */
+  }
+  .about-left-deco {
+    width: 140px;
+    height: 140px;
+  }
+  .deco-ring-3 {
+    width: 160px;
+    height: 160px;
+  }
+  .about-right {
+    flex: none;
+    width: 100%;
+    min-height: auto;
+    padding: 40px 28px 60px;
+    align-items: center;        /* keep centered on mobile     */
+  }
+  .about-right::before {
+    display: none;
+  }
+  .about-title {
+    font-size: 38px;            /* ← tablet title size         */
+  }
+  .about-nav-btn {
+    align-self: center;         /* button stays centered       */
   }
 }
-@media only screen and (min-width: 768px) {
-  .about-me {
-    width: 500px;
-    max-width: calc(100% - 70px);
-    transform: translateY(0%);
+
+@media only screen and (max-width: 480px) {
+  .about-title {
+    font-size: 30px;            /* ← phone title size          */
+    letter-spacing: -0.5px;
   }
-  .about-section {
-    opacity: 1;
+  .about-para {
+    font-size: 14px;
   }
-}
-@media only screen and (min-width: 1025px) {
-  .about-section {
-    width: var(--cWidth);
-    justify-content: right;
-    max-width: 1920px;
-    height: var(--vh);
-    padding: 0px;
-    opacity: 1;
-  }
-  .about-me {
-    padding: 0px;
-    width: 50%;
-  }
-  .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
-  }
-}
-@media only screen and (min-width: 1950px) {
-  .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
+  .about-right {
+    padding: 32px 20px 50px;
   }
 }
