@@ -63,8 +63,6 @@ const projects = [
   },
 ];
 
-const CARD_W = 100; // vw per card
-
 const Work = () => {
   const outerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
