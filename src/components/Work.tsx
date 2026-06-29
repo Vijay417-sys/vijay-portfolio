@@ -54,6 +54,15 @@ const projects = [
   },
   {
     num: "06",
+    name: "Tulasi Healthcare",
+    category: "Mobile App UI Design",
+    tools: "Figma, UI/UX Design, Mental Health App",
+    image: "/images/Tulasi_Healthcare.png",
+    link: "https://www.figma.com/make/Y0wb85MvOyRNGMqOm2LZAx/Mental-Health-Mobile-App-UI?fullscreen=1&t=3mUNbZ0kVZH11WBu-1&code-node-id=0-9",
+    color: "#16a34a",
+  },
+  {
+    num: "07",
     name: "Deepfake Detection",
     category: "AI / Machine Learning",
     tools: "LSTM, React, Node.js, Python",
